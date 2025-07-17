@@ -42,7 +42,7 @@ const BadgeTracker: React.FC = () => {
 
   return (
     <Card className="bg-card-gradient border-purple-800/30 hover-glow overflow-hidden">
-      <CardHeader className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 border-b border-purple-800/30">
+      <CardHeader className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 border-b border-purple-800/30 sticky top-0 z-10">
         <CardTitle className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Trophy className="w-6 h-6 text-yellow-400" />
@@ -53,11 +53,11 @@ const BadgeTracker: React.FC = () => {
           </BadgeUI>
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-6 space-y-6">
+      <CardContent className="p-6 space-y-6 max-h-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-purple-600 scrollbar-track-purple-300/10">
         {/* Earned Badges Section */}
         {earnedBadges.length > 0 && (
           <div>
-            <h4 className="text-sm font-medium text-green-400 mb-3 flex items-center gap-2">
+            <h4 className="text-sm font-medium text-green-400 mb-3 flex items-center gap-2 sticky top-0 bg-background/80 backdrop-blur-sm py-2 z-10">
               <Star className="w-4 h-4" />
               Earned Badges
             </h4>
@@ -93,7 +93,7 @@ const BadgeTracker: React.FC = () => {
 
         {/* Progress Badges Section */}
         <div>
-          <h4 className="text-sm font-medium text-muted-foreground mb-3 flex items-center gap-2">
+          <h4 className="text-sm font-medium text-muted-foreground mb-3 flex items-center gap-2 sticky top-0 bg-background/80 backdrop-blur-sm py-2 z-10">
             <Trophy className="w-4 h-4" />
             In Progress
           </h4>
