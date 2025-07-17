@@ -1,0 +1,149 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom crypto theme colors */
+    --neon-purple: 263 70% 50%;
+    --neon-pink: 324 85% 50%;
+    --neon-blue: 200 100% 50%;
+    --neon-green: 142 76% 36%;
+    --gold: 45 93% 58%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(240 15% 8%) 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  /* Gradient backgrounds */
+  .bg-crypto-gradient {
+    background: linear-gradient(135deg, hsl(var(--neon-purple)) 0%, hsl(var(--neon-blue)) 100%);
+  }
+  
+  .bg-gaming-gradient {
+    background: linear-gradient(135deg, hsl(var(--neon-pink)) 0%, hsl(var(--neon-purple)) 100%);
+  }
+  
+  .bg-card-gradient {
+    background: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(240 15% 8%) 100%);
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* Neon glow effects */
+  .glow-purple {
+    box-shadow: 0 0 20px hsl(var(--neon-purple) / 0.5);
+  }
+  
+  .glow-pink {
+    box-shadow: 0 0 20px hsl(var(--neon-pink) / 0.5);
+  }
+  
+  .glow-blue {
+    box-shadow: 0 0 20px hsl(var(--neon-blue) / 0.5);
+  }
+
+  /* Text gradients */
+  .text-gradient-purple {
+    background: linear-gradient(135deg, hsl(var(--neon-purple)) 0%, hsl(var(--neon-pink)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(45 100% 70%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animations */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+
+  /* Hover effects */
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--neon-purple) / 0.7);
+    transition: box-shadow 0.3s ease;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, hsl(var(--neon-purple)) 0%, hsl(var(--neon-pink)) 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, hsl(var(--neon-pink)) 0%, hsl(var(--neon-blue)) 100%);
+}
